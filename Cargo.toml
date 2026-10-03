@@ -1,0 +1,20 @@
+[package]
+name = "wayang-api"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.98.1"
+description = "Shared management-API transport for the wayang tools: HTTP/1.1 server, token scopes, rate limit, TLS/mTLS, idempotency, audit trail, SSE events"
+license = "MIT"
+repository = "https://github.com/dalang-io/wayang-api"
+
+[lib]
+name = "wayang_api"
+path = "src/lib.rs"
+
+[dependencies]
+serde_json = "1"
+rustls = { version = "0.23", default-features = false, features = ["ring", "std", "tls12"] }
+rustls-pemfile = "2"
+
+[dev-dependencies]
+rcgen = { version = "0.13", default-features = false, features = ["ring", "pem"] }
